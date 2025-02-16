@@ -55,7 +55,7 @@
                     @endforeach
 
                     <!-- contact seller -->
-                    <a href="{{ route('user', $product->creator->id) }}" class="btn btn-primary text-white"><i class="fa-solid fa-phone-flip"></i> {{ __('contents.contact-seller') }}</a>
+                    <a href="{{ route('chat.getMessages', $product->creator->id) }}" class="btn btn-primary text-white"><i class="fa-solid fa-phone-flip"></i> {{ __('contents.contact-seller') }}</a>
                 </div>
             </div>
         </div>
