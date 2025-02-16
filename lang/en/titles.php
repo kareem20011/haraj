@@ -9,5 +9,6 @@ return [
     'category-creation' => 'Create category',
     'subcategory-creation' => 'Create subcategory',
     'product-edit' => 'Edit product',
-    'dashboard' => 'Dashboard'
+    'dashboard' => 'Dashboard',
+    'chat' => 'Chat'
 ];

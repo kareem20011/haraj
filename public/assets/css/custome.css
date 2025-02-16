@@ -276,10 +276,10 @@ body.dark-mode .btn-close {
         margin-bottom: 0.5rem;
     }
 
-    .btn {
+    /* .btn {
         width: 130px;
         font-size: 14px;
-    }
+    } */
 
     .sidebar {
         display: none;

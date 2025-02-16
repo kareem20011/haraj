@@ -9,5 +9,6 @@ return [
     'category-creation' => 'أضافة فئة رئيسية',
     'subcategory-creation' => 'أضافة فئة فرعية',
     'product-edit' => 'تعديل المنتج',
-    'dashboard' => 'لوحة التحكم'
+    'dashboard' => 'لوحة التحكم',
+    'chat' => 'محادثة'
 ];

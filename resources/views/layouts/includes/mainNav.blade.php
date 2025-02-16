@@ -15,9 +15,16 @@
         </li>
 
         <!-- dashbaord -->
-         @if(auth()->user() && auth()->user()->role == "admin")
+        @if(auth()->user() && auth()->user()->role == "admin")
         <li class="nav-item me-2">
             <a class="nav-link rounded btns" href="{{ route('admin.home') }}"><i class="fa-solid fa-gauge"></i></a>
+        </li>
+        @endif
+
+        <!-- messages -->
+        @if(auth()->user())
+        <li class="nav-item me-2">
+            <a class="nav-link rounded btns" href="{{ route('chat') }}"><i class="fa-solid fa-inbox"></i></a>
         </li>
         @endif
 
@@ -26,6 +33,7 @@
             @if(!auth()->user())
             <a class="nav-link rounded btns" href="{{ route('login') }}">{{ __('contents.login') }} <i class="fa-solid fa-right-to-bracket"></i></a>
             @else
+            <!-- logout -->
             <form action="{{ route('logout') }}" method="post" class="nav-link rounded btns">
                 @csrf
                 <button class="webLogout"><span class="d-none d-sm-inline">{{ __('contents.logout') }}</span> <i class="fa-solid fa-right-from-bracket"></i></button>

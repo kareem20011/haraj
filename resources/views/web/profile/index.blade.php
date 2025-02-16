@@ -10,8 +10,8 @@
                 </div>
                 <div class="card-body text-center">
                     <!-- صورة المستخدم -->
-                     @if($user->avatar)
-                    <img loading="lazy" src="{{ asset('storage/users-avatar/' . ($user->avatar)) }}" alt="User Avatar" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+                    @if($user->getFirstMediaUrl())
+                    <img loading="lazy" src="{{ $user->getFirstMediaUrl() }}" alt="User Avatar" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
                     @else
                     <img loading="lazy" src="{{ asset('assets/images/avatar.png') }}" alt="User Avatar" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
                     @endif

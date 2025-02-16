@@ -37,4 +37,22 @@ class MessageController extends Controller
 
         return response()->json($messages);
     }
+
+    public function oldChats()
+    {
+        $userId = auth()->id();
+
+        // جلب كل المستخدمين الذين تم التحدث معهم مسبقًا
+        $users = Message::where('sender_id', $userId)
+            ->orWhere('receiver_id', $userId)
+            ->with(['sender', 'receiver']) // جلب بيانات المرسل والمستلم
+            ->get()
+            ->map(function ($message) use ($userId) {
+                return $message->sender_id == $userId ? $message->receiver : $message->sender;
+            })
+            ->unique('id') // إزالة التكرارات
+            ->values(); // إعادة تعيين المفاتيح
+
+        return response()->json($users);
+    }
 }

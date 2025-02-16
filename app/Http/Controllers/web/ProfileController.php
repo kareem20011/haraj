@@ -44,15 +44,8 @@ class ProfileController extends Controller
 
         // تحديث الصورة الشخصية
         if ($request->hasFile('avatar')) {
-            // حذف الصورة القديمة إذا كانت موجودة
-            if ($user->avatar) {
-                Storage::delete('public/users-avatar/' . $user->avatar);
-            }
-
-            // حفظ الصورة الجديدة
-            $fileName = time() . '_' . $request->file('avatar')->getClientOriginalName();
-            $request->file('avatar')->storeAs('public/users-avatar', $fileName);
-            $user->avatar = $fileName;
+            $user->clearMediaCollection();
+            $user->addMediaFromRequest('avatar')->toMediaCollection();
         }
 
         $user->save();

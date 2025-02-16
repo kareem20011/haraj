@@ -3,6 +3,7 @@
 use App\Http\Controllers\web\LanguageController;
 use App\Http\Controllers\web\auth\AuthanticationController;
 use App\Http\Controllers\web\CategoryController;
+use App\Http\Controllers\web\ChatController;
 use App\Http\Controllers\web\CommentController;
 use App\Http\Controllers\web\HomeController;
 use App\Http\Controllers\web\ProductController;
@@ -60,6 +61,10 @@ route::middleware('auth')->group(function () {
     Route::get('favorites', [ProductFavoriteController::class, 'index'])->name('favorites.index');
     Route::get('favorites/{product_id}', [ProductFavoriteController::class, 'store'])->name('favorites.store');
     Route::get('favorites/destory/{product_id}', [ProductFavoriteController::class, 'destory'])->name('favorites.destory');
+
+    Route::get('chat', [ChatController::class, 'index'])->name('chat');
+    Route::get('chat/{reseverID}', [ChatController::class, 'getMessages'])->name('chat.getMessages');
+    Route::post('chat/send', [ChatController::class, 'sendMessage'])->name('chat.sendMessage');
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
